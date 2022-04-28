@@ -1,0 +1,29 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+#container {
+    background-color: rgb(255, 238, 0);
+    margin: auto;
+    width: 50%;
+    height: 100%;
+}
+
+#board {
+    background-color: rgb(25, 0, 255);
+    margin-left: 0%;
+    width: 70%;
+    height: 100%;
+    /* transform: translate(-100%, -100%); */
+}
+
+#scoreboard {
+    float: left;
+    background-color: rgb(243, 11, 224);
+    /* margin-left: 0%; */
+    width: 1%;
+    /* height: 100%; */
+    
+}
