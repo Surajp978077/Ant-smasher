@@ -8,15 +8,16 @@ var intrvl = null;
 function antGenerator() {
   divid = Math.floor(Math.random() * 4) + 1;
   var img = document.createElement("img");
-  img.src = "ant.png";
+  img.src = "Images/ants.png";
   antid += 1;
-  img.setAttribute("id", antid)
+  // img.setAttribute("id", antid)
   img.setAttribute("class", "ant")
   img.setAttribute("onclick", "remove(this)")
   var div = document.getElementById(divid);
   div.appendChild(img);
   img.setAttribute('draggable', 'false');
-
+  // document.getElementById("antid").addEventListener('animationend', end); 
+  
 
   // var elem = document.getElementById(antid);
   // // elem.style.display='none';
@@ -34,10 +35,11 @@ function antGenerator() {
   // }
 }
 
+
 function beeGenerator() {
   divid = Math.floor(Math.random() * 4) + 1;
   var img1 = document.createElement("img");
-  img1.src = "bee.png";
+  img1.src = "Images/bee.png";
   beeid++;
   img1.setAttribute("id", beeid)
   img1.setAttribute("onclick", "end()")
@@ -48,18 +50,21 @@ function beeGenerator() {
 
 document.getElementById("button").addEventListener("click", start);
 document.getElementById("bttn").addEventListener("click", start);
-document.getElementsByClassName("ant").addEventListener('animationend', end);
 
 function remove(el) {
   finalScore += 2
   var element = el;
+  // element.style.animationPlayState='paused';
   element.remove();
 }
 
 var playtime;
 
 function start() {
+
+  // document.getElementsByTagName("img")[0].style.animation='move 2s';
   document.getElementById("result").style.display = "none";
+  document.getElementsByClassName("start")[0].style.display = "none";
   decision = Math.floor(Math.random() * 100) + 1;
   if (decision < 85) {
     antGenerator()
@@ -74,6 +79,7 @@ function start() {
   // }
   document.getElementById("score").innerHTML = finalScore;
   document.getElementById("liveScore").innerHTML = finalScore;
+  document.getElementById("mobileScore").innerHTML = finalScore;
 }
 
 
