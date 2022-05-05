@@ -83,7 +83,6 @@ header {
   font-size: 23px;
   font-style: italic;
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  
 }
 
 #generator {
@@ -92,6 +91,24 @@ header {
   position: relative;
   display: flex;
   z-index: 1;
+}
+
+#life{
+  margin: auto;
+  width:fit-content;
+  height: 25px;
+  top: 3%;
+  left: 3%;
+  position: absolute;
+  background-color: rgba(207, 34, 34, 0.5);
+  z-index: 3;
+  display: flex;
+  justify-content: flex-start;
+}
+#life img{
+  margin: -3px;
+  width: 33px;
+  height: 27px;
 }
 
 #greenboard{
@@ -136,7 +153,7 @@ header {
   align-content: right;
 }
 
-img {
+.gen img {
   width: 50px;
   height: 50px;
   position: absolute;

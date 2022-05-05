@@ -4,7 +4,7 @@ let beeid = 50;
 let finalScore = 0;
 let decision;
 var intrvl = null;
-
+let life;
 function antGenerator() {
   divid = Math.floor(Math.random() * 4) + 1;
   var img = document.createElement("img");
@@ -13,6 +13,7 @@ function antGenerator() {
   // img.setAttribute("id", antid)
   img.setAttribute("class", "ant")
   img.setAttribute("onclick", "remove(this)")
+  img.setAttribute("onanimationend", "dec_life()")
   var div = document.getElementById(divid);
   div.appendChild(img);
   img.setAttribute('draggable', 'false');
@@ -61,8 +62,12 @@ function remove(el) {
 var playtime;
 
 function start() {
-
-  // document.getElementsByTagName("img")[0].style.animation='move 2s';
+  life=3;
+  // let tagname=document.getElementsByTagName("img");
+  // tagname.array.forEach(element => {
+    
+  // });
+  
   document.getElementById("result").style.display = "none";
   document.getElementsByClassName("start")[0].style.display = "none";
   decision = Math.floor(Math.random() * 100) + 1;
@@ -81,7 +86,22 @@ function start() {
   document.getElementById("liveScore").innerHTML = finalScore;
   document.getElementById("mobileScore").innerHTML = finalScore;
 }
-
+ function fulllife(){
+  var img2 = document.createElement("img");
+  img.src = "Images/heart.png";
+  var lifediv = document.getElementById('life');
+  lifediv.appendChild(img2);
+  lifediv.appendChild(img2);
+  lifediv.appendChild(img2);
+ }
+function dec_life(){
+  life--;
+  var img2 = document.createElement("img");
+  img.src = "Images/heart.png";
+  if(life==0){
+    end();
+  }
+}
 
 function end() {
   document.getElementById("result").style.display = "block";
