@@ -1,3 +1,5 @@
+/* mobile first design */
+
 html,
 body {
   height: 100%;
@@ -5,10 +7,19 @@ body {
 }
 
 header {
-  height: 5%;
+  height: 7%;
   text-align: center;
   vertical-align: middle;
   position: relative;
+  background-color: grey;
+  top: -35px;
+  margin-bottom: -35px;
+}
+
+header p {
+  font-weight: bolder;
+  font-size: 213%;
+
 }
 
 #container {
@@ -19,7 +30,7 @@ header {
 }
 
 #board {
-  background-image: url("Images/bg.png");
+  background-image: url("../Images/bg.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;
   width: 100%;
@@ -31,7 +42,7 @@ header {
   height: 100%;
   position: absolute;
   z-index: 4;
-  background-image:url(images/texture_bonus.png);
+  background-image: url(../images/texture_bonus.png);
 }
 
 .start div {
@@ -43,7 +54,7 @@ header {
 }
 
 .start button {
-  background-image: url(images/texture_bonus.png);
+  background-image: url(../images/texture_bonus.png);
   background-blend-mode: darken;
   border: none;
   top: 55%;
@@ -55,6 +66,48 @@ header {
   font-size: larger;
   font-weight: bolder;
 }
+#killant{
+  top: -10px;
+  left: 44px;
+  position: absolute;
+  width: 100%;
+}
+
+#killant img{
+  width: 45px;
+  top: 15px;
+  left: 238px;
+  position: absolute;
+  display: inline;
+}
+#leavebee{
+  top: 65px;
+  left: 44px;
+  position: absolute;
+  width: 100%;
+}
+
+#leavebee img{
+  width: 45px;
+  top: 15px;
+  left: 238px;
+  position: absolute;
+  display: inline;
+}
+#gethearts{
+  top: 140px;
+  left: 44px;
+  position: absolute;
+  width: 100%;
+}
+
+#gethearts img{
+  width: 45px;
+  top: 29px;
+  left: 239px;
+  position: absolute;
+  display: inline;
+}
 
 #result {
   width: 100%;
@@ -62,7 +115,7 @@ header {
   position: absolute;
   align-content: center;
   z-index: 4;
-  background-image: url(images/texture_bonus.png);
+  background-image: url(../images/texture_bonus.png);
   display: none;
 }
 
@@ -83,7 +136,7 @@ header {
 }
 
 #result button {
-  background-image: url(images/texture_bonus.png);
+  background-image: url(../images/texture_bonus.png);
   background-blend-mode: darken;
   border: none;
   top: 55%;
@@ -153,7 +206,7 @@ header {
 }
 
 #greenboard {
-  background-image: url("Images/board.png");
+  background-image: url("../Images/board.png");
   background-position: center;
   width: 100%;
   height: 60px;
@@ -194,8 +247,8 @@ header {
 }
 
 .gen img {
-  width: 50px;
-  height: 50px;
+  width: 43px;
+  height: 62px;
   position: absolute;
   animation: move 5s;
   animation-timing-function: linear;
@@ -248,7 +301,7 @@ header {
 }
 
 #fruits {
-  background-image: url("Images/fruits.png");
+  background-image: url("../Images/fruits.png");
   background-size: contain;
   width: 100%;
   height: 60px;
@@ -259,7 +312,7 @@ header {
 }
 
 footer {
-  background-color: rgb(255, 255, 255);
+  background-color: grey;
   z-index: 3;
   position: absolute;
   height: 10%;
@@ -268,24 +321,46 @@ footer {
   vertical-align: middle;
 }
 
-#left,#right{
+#left,
+#right {
   display: none;
 }
 
+/* for laptops and tablets */
+
 @media only screen and (orientation: landscape) {
- 
-  #container{
+
+  .start div {
+    top: 38%;
+  }
+
+  #result p {
+    top: 22%;
+  }
+
+  #result span {
+    top: 40%;
+  }
+
+  #result button {
+    top: 50%;
+  }
+
+  .start button {
+    top: 50%;
+  }
+
+  #container {
     width: 40%;
     height: 100%;
     float: left;
-    /* display: inline; */
   }
 
-  header{
+  header {
     display: none;
   }
 
-  footer{
+  footer {
     display: none;
   }
 
@@ -293,74 +368,75 @@ footer {
     0% {
       top: 0px;
     }
-  
+
     10% {
       top: 81px;
     }
-  
+
     20% {
       top: 160px;
     }
-  
+
     30% {
       top: 239px;
     }
-  
+
     40% {
       top: 318px;
     }
-  
+
     50% {
       top: 397px;
     }
-  
+
     60% {
       top: 476px;
     }
-  
+
     70% {
       top: 555px;
     }
-  
+
     80% {
       top: 634px;
     }
-  
+
     90% {
       top: 700px;
     }
-  
+
     100% {
       top: 700px;
     }
   }
-  
-  #left{
+
+  #left {
     height: 100%;
     width: 30%;
     float: left;
     display: inline;
+    background-color: grey;
   }
 
-  #left p{
+  #left p {
     font-size: 300%;
     top: 30%;
     left: 7%;
     position: absolute;
   }
-  #right{
+
+  #right {
     height: 100%;
     width: 30%;
     float: left;
     display: inline;
+    background-color: grey;
   }
-  #right p{
+
+  #right p {
     font-size: 300%;
     top: 30%;
     left: 30%;
     position: relative;
-    
   }
-
-
 }

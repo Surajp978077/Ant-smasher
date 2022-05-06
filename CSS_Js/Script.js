@@ -8,126 +8,18 @@ var life;
 var lvl;
 var playtime;
 
-
-function antGenerator() {
-  divid = Math.floor(Math.random() * 4) + 1;
-  var img = document.createElement("img");
-  img.src = "Images/ants.png";
-  antid += 1;
-  // img.setAttribute("id", antid)
-  img.setAttribute("class", "ant")
-  img.setAttribute("onclick", "remove(this)")
-  img.setAttribute("onanimationend", "dec_life()")
-  chklvl(img);
-  // img.setAttribute("style", "animation-duration: 10s")
-  var div = document.getElementById(divid);
-  div.appendChild(img);
-  img.setAttribute('draggable', 'false');
-
-
-  // var elem = document.getElementById(antid);
-  // // elem.style.display='none';
-  // var pos = 0;
-  // clearInterval(intrvl);
-  // intrvl = setInterval(frame, 10);
-  // function frame() {
-  //   if (top=='90%' ) {
-  //     clearInterval(intrvl);
-  //   } else {
-  //     pos ++;
-  //     elem.style.top = pos + '%';
-  //     // elem.style.left = pos + '%';
-  //   }
-  // }
-}
-
-
-function beeGenerator() {
-  divid = Math.floor(Math.random() * 4) + 1;
-  var img1 = document.createElement("img");
-  img1.src = "Images/bee.png";
-  beeid++;
-  img1.setAttribute("id", beeid)
-  img1.setAttribute("onclick", "end()")
-  chklvl(img1);
-  // img1.setAttribute("style.animationDuration", "1")
-  var div = document.getElementById(divid);
-  div.appendChild(img1);
-  img1.setAttribute('draggable', 'false');
-}
-
-function lifegenerator() {
-  divid = Math.floor(Math.random() * 4) + 1;
-  var newheart = document.createElement("img");
-  newheart.src = "Images/heart.png";
-  newheart.setAttribute("onclick", "increaselife(this)")
-  chklvl(newheart);
-  var div = document.getElementById(divid);
-  div.appendChild(newheart);
-  newheart.setAttribute('draggable', 'false');
-
-}
-
-document.getElementById("button").addEventListener("click", start);
-document.getElementById("bttn").addEventListener("click", start);
-function chklvl(id) {
-  if (lvl == 1) {
-    id.setAttribute("style", "animation-duration: 10s");
-  }
-  else if (lvl == 2) {
-    id.setAttribute("style", "animation-duration: 9s");
-  }
-  else if (lvl == 3) {
-    id.setAttribute("style", "animation-duration: 8s");
-  }
-  else if (lvl == 4) {
-    id.setAttribute("style", "animation-duration: 7s");
-  }
-  else if (lvl == 5) {
-    id.setAttribute("style", "animation-duration: 6s");
-  }
-  else if (lvl == 6) {
-    id.setAttribute("style", "animation-duration: 4s");
-  }
-  else if (lvl == 7) {
-    id.setAttribute("style", "animation-duration: 3s");
-  } else {
-    id.setAttribute("style", "animation-duration: 2s");
-  }
-}
-function remove(el) {
-  finalScore += 2
-  var element = el;
-  element.remove();
-}
-
-
+// Function to start the game
 function start() {
   fulllife();
   lvl = 1;
   finalScore = 0;
   life = 3;
-  // let tagname=document.getElementsByTagName("img");
-  // tagname.array.forEach(element => {
-
   gameplay();
-  // });
-
   document.getElementById("result").style.display = "none";
   document.getElementsByClassName("start")[0].style.display = "none";
-  //   if(score==20){
-  //     lvl2();
-  //   }
-  //   else{
-  // }
 }
 
-function scoreupdate() {
-  document.getElementById("score").innerHTML = finalScore;
-  // document.getElementById("liveScore").innerHTML = finalScore;
-  document.getElementById("mobileScore").innerHTML = finalScore;
-}
-
+// Decides the players level based on the score 
 function gameplay() {
   if (finalScore < 10) {
     lvl = 1;
@@ -135,7 +27,6 @@ function gameplay() {
     level1();
     console.log('done');
   }
-  // console.log('done1');
   else if (finalScore >= 10 & finalScore < 26) {
     console.log('entered');
     lvl = 2;
@@ -174,6 +65,94 @@ function gameplay() {
   }
 }
 
+// Checks level to change the animation duration 
+function chklvl(id) {
+  if (lvl == 1) {
+    id.setAttribute("style", "animation-duration: 10s");
+  }
+  else if (lvl == 2) {
+    id.setAttribute("style", "animation-duration: 9s");
+  }
+  else if (lvl == 3) {
+    id.setAttribute("style", "animation-duration: 8s");
+  }
+  else if (lvl == 4) {
+    id.setAttribute("style", "animation-duration: 7s");
+  }
+  else if (lvl == 5) {
+    id.setAttribute("style", "animation-duration: 6s");
+  }
+  else if (lvl == 6) {
+    id.setAttribute("style", "animation-duration: 4s");
+  }
+  else if (lvl == 7) {
+    id.setAttribute("style", "animation-duration: 3s");
+  } else {
+    id.setAttribute("style", "animation-duration: 2s");
+  }
+}
+
+// Generate ants in random div 
+function antGenerator() {
+  divid = Math.floor(Math.random() * 4) + 1;
+  var img = document.createElement("img");
+  img.src = "Images/ants.png";
+  antid += 1;
+  img.setAttribute("class", "ant")
+  img.setAttribute("onclick", "remove(this)")
+  img.setAttribute("onanimationend", "dec_life()")
+  chklvl(img);
+  var div = document.getElementById(divid);
+  div.appendChild(img);
+  img.setAttribute('draggable', 'false');
+}
+
+
+// Generate bees in random div
+function beeGenerator() {
+  divid = Math.floor(Math.random() * 4) + 1;
+  var img1 = document.createElement("img");
+  img1.src = "Images/bee.png";
+  beeid++;
+  img1.setAttribute("id", beeid)
+  img1.setAttribute("onclick", "end()")
+  chklvl(img1);
+  var div = document.getElementById(divid);
+  div.appendChild(img1);
+  img1.setAttribute('draggable', 'false');
+}
+
+
+// Generate life in random div
+function lifegenerator() {
+  divid = Math.floor(Math.random() * 4) + 1;
+  var newheart = document.createElement("img");
+  newheart.src = "Images/heart.png";
+  newheart.setAttribute("onclick", "increaselife(this)")
+  chklvl(newheart);
+  var div = document.getElementById(divid);
+  div.appendChild(newheart);
+  newheart.setAttribute('draggable', 'false');
+}
+
+// Event listeners for start and retry buttons
+document.getElementById("button").addEventListener("click", start);
+document.getElementById("bttn").addEventListener("click", start);
+
+//  Removes the Ant, Bee and heart when clicked on them
+function remove(el) {
+  finalScore += 2
+  var element = el;
+  element.remove();
+}
+
+// Upadating the score 
+function scoreupdate() {
+  document.getElementById("score").innerHTML = finalScore;
+  document.getElementById("mobileScore").innerHTML = finalScore;
+}
+
+// LEVELS
 function level1() {
   console.log('hello');
 
@@ -216,10 +195,6 @@ function level3() {
 }
 
 function level4() {
-  // lvl=4;
-  // if (finalScore >= 70) {
-  //   level5();
-  // }
   decision = Math.floor(Math.random() * 100) + 1;
   if (decision < 70) {
     antGenerator();
@@ -233,10 +208,6 @@ function level4() {
 }
 
 function level5() {
-  // lvl=5;
-  // if (finalScore >= 94) {
-  //   level6();
-  // }
   decision = Math.floor(Math.random() * 100) + 1;
   if (decision < 65) {
     antGenerator();
@@ -250,10 +221,6 @@ function level5() {
 }
 
 function level6() {
-  // lvl=6;
-  // if (finalScore >= 118) {
-  //   level7();
-  // }
   decision = Math.floor(Math.random() * 100) + 1;
   if (decision < 65) {
     antGenerator();
@@ -292,7 +259,7 @@ function level8() {
   playtime = setTimeout(gameplay, 200);
 }
 
-
+// Fill the life bar at the start of the game with 3 lives
 function fulllife() {
   var img2 = document.createElement("img");
   img2.src = "Images/heart.png";
@@ -306,6 +273,7 @@ function fulllife() {
   lifediv.appendChild(img4);
 }
 
+// Increase life by 1 everytime players gets heart  
 function increaselife(heartid) {
   life++;
   var element = heartid;
@@ -314,9 +282,9 @@ function increaselife(heartid) {
   img5.src = "Images/heart.png";
   var lifediv = document.getElementById('life');
   lifediv.appendChild(img5);
-
 }
 
+// Decrease life by one everytime the user misses a Ant 
 function dec_life() {
   if (life <= 0) {
     console.log('done23')
@@ -328,15 +296,15 @@ function dec_life() {
   }
 }
 
-
+// End the game when lives get depleted or player clicks on the bee 
 function end() {
   document.getElementById("result").style.display = "block";
   clearTimeout(playtime);
   var list1 = document.getElementById('life');
-  var child=list1.lastElementChild;
-  while(child){
+  var child = list1.lastElementChild;
+  while (child) {
     list1.removeChild(child);
-    child=list1.lastElementChild;
+    child = list1.lastElementChild;
   }
 }
 
