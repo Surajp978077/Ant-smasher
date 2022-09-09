@@ -221,7 +221,10 @@ function lifegenerator() {
 function remove(el) {
   finalScore += 2
   var element = el;
-  element.remove();
+  element.style.animationPlayState ='paused';
+  element.removeAttribute("onclick")
+  element.src= './ants0_4.png'
+  setTimeout(function(){element.remove()},3000);
   // Upadating the score 
   document.getElementById("score").innerHTML = finalScore;
   document.getElementById("mobileScore").innerHTML = finalScore;
