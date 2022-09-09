@@ -1,9 +1,12 @@
 /* mobile first design */
-
+*{
+  user-select: none;
+}
 html,
 body {
   height: 100%;
   margin: 0;
+  overflow: hidden
 }
 
 header {
@@ -30,7 +33,7 @@ header p {
 }
 
 #board {
-  background-image: url("../Images/bg.png");
+  background-image: url("./bg.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;
   width: 100%;
@@ -42,7 +45,7 @@ header p {
   height: 100%;
   position: absolute;
   z-index: 4;
-  background-image: url(../images/texture_bonus.png);
+  background-image: url(./texture_bonus.png);
 }
 
 .start div {
@@ -54,7 +57,7 @@ header p {
 }
 
 .start button {
-  background-image: url(../images/texture_bonus.png);
+  background-image: url(./texture_bonus.png);
   background-blend-mode: darken;
   border: none;
   top: 55%;
@@ -115,7 +118,7 @@ header p {
   position: absolute;
   align-content: center;
   z-index: 4;
-  background-image: url(../images/texture_bonus.png);
+  background-image: url(./texture_bonus.png);
   display: none;
 }
 
@@ -136,7 +139,7 @@ header p {
 }
 
 #result button {
-  background-image: url(../images/texture_bonus.png);
+  background-image: url(./texture_bonus.png);
   background-blend-mode: darken;
   border: none;
   top: 55%;
@@ -206,7 +209,7 @@ header p {
 }
 
 #greenboard {
-  background-image: url("../Images/board.png");
+  background-image: url("./board.png");
   background-position: center;
   width: 100%;
   height: 60px;
@@ -301,7 +304,7 @@ header p {
 }
 
 #fruits {
-  background-image: url("../Images/fruits.png");
+  background-image: url("./fruits.png");
   background-size: contain;
   width: 100%;
   height: 60px;
@@ -370,43 +373,43 @@ footer {
     }
 
     10% {
-      top: 81px;
+      top: 57px;
     }
 
     20% {
-      top: 160px;
+      top: 114px;
     }
 
     30% {
-      top: 239px;
+      top: 171px;
     }
 
     40% {
-      top: 318px;
+      top: 228px;
     }
 
     50% {
-      top: 397px;
+      top: 285px;
     }
 
     60% {
-      top: 476px;
+      top: 342px;
     }
 
     70% {
-      top: 555px;
+      top: 399px;
     }
 
     80% {
-      top: 634px;
+      top: 456px;
     }
 
     90% {
-      top: 700px;
+      top: 513px;
     }
 
     100% {
-      top: 700px;
+      top: 570px;
     }
   }
 
