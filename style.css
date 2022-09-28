@@ -152,10 +152,6 @@ header p {
   font-weight: bolder;
 }
 
-#result #bttn2{
-  display: none;
-}
-
 #liveScore {
   margin: auto;
   width: 55px;
@@ -439,10 +435,6 @@ footer {
     display: inline;
     background-color: grey;
   }
-  
-  #result #bttn2{
-  display: block;
-}
 
   #right p {
     font-size: 300%;
