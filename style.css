@@ -151,13 +151,13 @@ header p {
   font-size: larger;
   font-weight: bolder;
 }
-
+/*
 #result #bttn2{
   left: 40%;
   top: 73%;
   width:fit-content;
   height:  fit-content;
-}
+}*/
 
 #liveScore {
   margin: auto;
