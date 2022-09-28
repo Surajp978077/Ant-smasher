@@ -11,6 +11,7 @@ var playtime;
 // Event listeners for start and retry buttons
 document.getElementById("button").addEventListener("click", start);
 document.getElementById("bttn").addEventListener("click", start);
+document.getElementById("bttn2").addEventListener("click", startPage);
 
 // Function to start the game
 function start() {
@@ -24,6 +25,13 @@ function start() {
   document.getElementById("mobileScore").innerHTML = finalScore;
   gameplay();
 }
+
+// Return back to start page
+function startPage() {
+  document.getElementById("result").style.display = "none";
+  document.getElementsByClassName("start")[0].style.display = "block";
+}
+
 
 // Fill the life bar at the start of the game with 3 lives
 function fulllife() {
@@ -43,9 +51,9 @@ function gameplay() {
     document.getElementById('level').innerHTML = "LEVEL 1";
     decision = Math.floor(Math.random() * 100) + 1;
     if (decision < 85) {
-      antGenerator();
+      generator('ant');
     } else {
-      beeGenerator();
+      generator('bee');
     }
     // level1();
     playtime = setTimeout(gameplay, 3000);
@@ -55,11 +63,11 @@ function gameplay() {
     document.getElementById('level').innerHTML = "LEVEL 2";
     decision = Math.floor(Math.random() * 100) + 1;
     if (decision < 85) {
-      antGenerator();
-    } else if (decision > 85 & decision < 95) {
-      beeGenerator();
+      generator('ant');
+    } else if (decision > 85 & decision < 97) {
+      generator('bee');
     } else {
-      lifegenerator();
+      generator('life');
     }
     playtime = setTimeout(gameplay, 3000);
   }
@@ -68,11 +76,11 @@ function gameplay() {
     document.getElementById('level').innerHTML = "LEVEL 3";
     decision = Math.floor(Math.random() * 100) + 1;
     if (decision < 75) {
-      antGenerator();
-    } else if (decision > 75 & decision < 95) {
-      beeGenerator();
+      generator('ant');
+    } else if (decision > 75 & decision < 97) {
+      generator('bee');
     } else {
-      lifegenerator();
+      generator('life');
     }
     playtime = setTimeout(gameplay, 2000);
   }
@@ -81,11 +89,11 @@ function gameplay() {
     document.getElementById('level').innerHTML = "LEVEL 4";
     decision = Math.floor(Math.random() * 100) + 1;
     if (decision < 70) {
-      antGenerator();
-    } else if (decision > 70 & decision < 93) {
-      beeGenerator();
+      generator('ant');
+    } else if (decision > 70 & decision < 96) {
+      generator('bee');
     } else {
-      lifegenerator();
+      generator('life');
     }
     playtime = setTimeout(gameplay, 2000);
   }
@@ -94,11 +102,11 @@ function gameplay() {
     document.getElementById('level').innerHTML = "LEVEL 5";
     decision = Math.floor(Math.random() * 100) + 1;
     if (decision < 65) {
-      antGenerator();
-    } else if (decision > 65 & decision < 90) {
-      beeGenerator();
+      generator('ant');
+    } else if (decision > 65 & decision < 95) {
+      generator('bee');
     } else {
-      lifegenerator();
+      generator('life');
     }
     playtime = setTimeout(gameplay, 1000);
   }
@@ -107,11 +115,11 @@ function gameplay() {
     document.getElementById('level').innerHTML = "LEVEL 6";
     decision = Math.floor(Math.random() * 100) + 1;
     if (decision < 65) {
-      antGenerator();
-    } else if (decision > 65 & decision < 90) {
-      beeGenerator();
+      generator('ant');
+    } else if (decision > 65 & decision < 93) {
+      generator('bee');
     } else {
-      lifegenerator();
+      generator('life');
     }
     playtime = setTimeout(gameplay, 800);
   }
@@ -120,11 +128,11 @@ function gameplay() {
     document.getElementById('level').innerHTML = "LEVEL 7";
     decision = Math.floor(Math.random() * 100) + 1;
     if (decision < 65) {
-      antGenerator();
-    } else if (decision > 65 & decision < 87) {
-      beeGenerator();
+      generator('ant');
+    } else if (decision > 65 & decision < 90) {
+      generator('bee');
     } else {
-      lifegenerator();
+      generator('life');
     }
     playtime = setTimeout(gameplay, 500);
   }
@@ -133,11 +141,11 @@ function gameplay() {
     document.getElementById('level').innerHTML = "LEVEL 8";
     decision = Math.floor(Math.random() * 100) + 1;
     if (decision < 65) {
-      antGenerator();
+      generator('ant');
     } else if (decision > 60 & decision < 85) {
-      beeGenerator();
+      generator('bee');
     } else {
-      lifegenerator();
+      generator('life');
     }
     playtime = setTimeout(gameplay, 200);
   }
@@ -173,47 +181,40 @@ function chklvl(id) {
   }
 }
 
-// Generate ants in random div 
-function antGenerator() {
-  divid = Math.floor(Math.random() * 4) + 1;
+function generator(type) {
+  divid = Math.floor(Math.random() * 10) + 1;
   var img = document.createElement("img");
-  img.src = "./ants.png";
-  antid += 1;
-  img.setAttribute("class", "ant")
-  img.setAttribute("onclick", "remove(this)")
-  img.setAttribute("onanimationend", "dec_life()")
-  chklvl(img);
+  switch (type) {
+    case 'ant':
+      // Generate ants
+      img.src = "./ants.png";
+      antid += 1;
+      img.setAttribute("class", "ant")
+      img.setAttribute("onclick", "remove(this)")
+      img.setAttribute("onanimationend", "dec_life()")
+      chklvl(img);
+
+      break;
+    case 'bee':
+      // Generate bees
+      img.src = "./bee.png";
+      beeid++;
+      img.setAttribute("id", beeid)
+      img.setAttribute("onclick", "end()")
+      chklvl(img);
+
+      break;
+    case 'life':
+      // Generate heart
+      img.src = "./heart.png";
+      img.setAttribute("onclick", "increaselife(this)")
+      chklvl(img);
+      break;
+
+  }
   var div = document.getElementById(divid);
   div.appendChild(img);
   img.setAttribute('draggable', 'false');
-}
-
-
-// Generate bees in random div
-function beeGenerator() {
-  divid = Math.floor(Math.random() * 4) + 1;
-  var img1 = document.createElement("img");
-  img1.src = "./bee.png";
-  beeid++;
-  img1.setAttribute("id", beeid)
-  img1.setAttribute("onclick", "end()")
-  chklvl(img1);
-  var div = document.getElementById(divid);
-  div.appendChild(img1);
-  img1.setAttribute('draggable', 'false');
-}
-
-
-// Generate life in random div
-function lifegenerator() {
-  divid = Math.floor(Math.random() * 4) + 1;
-  var newheart = document.createElement("img");
-  newheart.src = "./heart.png";
-  newheart.setAttribute("onclick", "increaselife(this)")
-  chklvl(newheart);
-  var div = document.getElementById(divid);
-  div.appendChild(newheart);
-  newheart.setAttribute('draggable', 'false');
 }
 
 
@@ -221,11 +222,11 @@ function lifegenerator() {
 function remove(el) {
   finalScore += 2
   var element = el;
-  element.style.animationPlayState ='paused';
+  element.style.animationPlayState = 'paused';
   element.removeAttribute("onclick")
-  element.src= './ants0_4.png'
-  setTimeout(function(){element.remove()},3000);
-  // Upadating the score 
+  element.src = './ants0_4.png'
+  setTimeout(function () { element.remove() }, 3000);
+  // Upadating the score
   document.getElementById("score").innerHTML = finalScore;
   document.getElementById("mobileScore").innerHTML = finalScore;
 }
@@ -260,8 +261,6 @@ function end() {
   clearTimeout(playtime);
   var list1 = document.getElementById('life');
   var child = list1.lastElementChild;
-  // let del = document.getElementsByClassName('ant')
-  // del.length=0
   while (child) {
     list1.removeChild(child);
     child = list1.lastElementChild;
