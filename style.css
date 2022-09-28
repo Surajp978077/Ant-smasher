@@ -441,7 +441,7 @@ footer {
   }
   
   #result #bttn2{
-  display: none;
+  display: block;
 }
 
   #right p {
