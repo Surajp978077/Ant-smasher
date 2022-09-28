@@ -439,6 +439,10 @@ footer {
     display: inline;
     background-color: grey;
   }
+  
+  #result #bttn2{
+  display: none;
+}
 
   #right p {
     font-size: 300%;
