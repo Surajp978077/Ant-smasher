@@ -187,7 +187,7 @@ function generator(type) {
   switch (type) {
     case 'ant':
       // Generate ants
-      img.src = "./ants.png";
+      img.src = "./ant.gif";
       antid += 1;
       img.setAttribute("class", "ant")
       img.setAttribute("onclick", "remove(this)")
