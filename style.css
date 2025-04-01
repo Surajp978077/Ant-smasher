@@ -59,7 +59,7 @@ header p {
 .start button {
   background-image: url(./texture_bonus.png);
   background-blend-mode: darken;
-  border: none;
+  border: 1px solid black;
   top: 55%;
   position: absolute;
   left: 45%;
